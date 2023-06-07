@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <p>Média: <span id="media"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
     <script>
         var nota_1 = prompt("Digite a nota da primeira prova: ");
         var nota_2 = prompt("Digite a nota da segunda prova: ");
@@ -22,11 +24,12 @@
             cor="red";
         }
         console.log(situacao,cor);
-        var resultado = document.createElement("p");
-        resultado.textContent = "|  "+media+"  |  "+situacao+"  |";
-        resultado.style.color=cor; 
-        document.body.appendChild(resultado);
+        var media_resultado= document.getElementById("media");
+        media_resultado.innerHTML = media;
 
+        var situacao_resultado = document.getElementById("situacao");
+        situacao_resultado.innerHTML = situacao;
+        situacao_resultado.style.color = cor;
     </script>
 </body>
 </html>
