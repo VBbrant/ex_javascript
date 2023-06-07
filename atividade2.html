@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="peso">Insira seu peso:</label>
+    <input type="number" step="0.01" id="peso">
+    <label for="altura">Insira sua altura:</label>
+    <input type="number" step="0.01" id="altura">
+    <button onclick="indice()">Calcular</button>
+    <p>Situação: <span id="situacao"></span></p>
+    <script>
+        function indice() {
+            var peso = parseFloat(document.getElementById("peso").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            var imc=peso/(altura**2);
+            var situacao, cor;
+            if (imc >= 40) {
+                situacao="Obesidade III"
+                cor="red"
+            } else if (imc >= 35 && imc<40){
+                situacao="Obesidade II"
+                cor="red"
+            } else if (imc >= 30 && imc<35){
+                situacao="Obesidade I"
+                cor="red"
+            } else if (imc >= 25 && imc<30){
+                situacao="Acima do peso"
+                cor="orange"
+            } else if (imc >= 18.50 && imc<25){
+                situacao="Peso normal"
+                cor="green"
+            } else if (imc >= 17 && imc<18.50){
+                situacao="Abaixo do peso"
+                cor="orange"
+            }  else if  (imc<17){
+                situacao="Muito abaixo do peso"
+                cor="red"
+            }
+                console.log(situacao,cor);
+                var situacao_resultado = document.getElementById("situacao");
+                situacao_resultado.innerHTML = situacao;
+                situacao_resultado.style.color = cor;
+        }
+    </script>
+    
+</body>
+</html>
