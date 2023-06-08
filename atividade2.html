@@ -43,29 +43,27 @@
     <p>Situação: <span id="situacao"></span></p>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function Media() {
-                var nota_1 = parseFloat(document.getElementById("nota_1").value);
-                var nota_2 = parseFloat(document.getElementById("nota_2").value);
-                var media = (nota_1 + nota_2) / 2;
-                var situacao, cor;
-                if (media >= 6) {
-                    situacao = "Aprovado";
-                    cor = "blue";
-                } else {
-                    situacao = "Reprovado";
-                    cor = "red";
-                }
-                console.log(situacao, cor, media);
-
-                var media_resultado = document.getElementById("media");
-                media_resultado.innerHTML = media;
-
-                var situacao_resultado = document.getElementById("situacao");
-                situacao_resultado.innerHTML = situacao;
-                situacao_resultado.style.color = cor;
+        function Media() {
+            var nota_1 = parseFloat(document.getElementById("nota_1").value);
+            var nota_2 = parseFloat(document.getElementById("nota_2").value);
+            var media = (nota_1 + nota_2) / 2;
+            var situacao, cor;
+            if (media >= 6) {
+                situacao = "Aprovado";
+                cor = "blue";
+            } else {
+                situacao = "Reprovado";
+                cor = "red";
             }
-        });
+            console.log(situacao, cor, media);
+
+            var media_resultado = document.getElementById("media");
+            media_resultado.innerHTML = media;
+
+            var situacao_resultado = document.getElementById("situacao");
+            situacao_resultado.innerHTML = situacao;
+            situacao_resultado.style.color = cor;
+        }
     </script>
 </body>
 </html>
