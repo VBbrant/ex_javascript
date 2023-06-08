@@ -1,50 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Média</title>
     <style>
-        .azul {
-            color: blue;
-        }
-        .vermelho {
-            color: red;
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
 <body>
-    <label for="nota1">Nota 1:</label>
-    <input type="number" id="nota1">
-    <br>
-    <label for="nota2">Nota 2:</label>
-    <input type="number" id="nota2">
-    <br>
-    <button onclick="calcularMedia()">Calcular</button>
-    <p>Média: <span id="media"></span></p>
-    <p>Situação: <span id="situacao"></span></p>
 
-    <script>
-        function calcularMedia() {
-            var nota1 = parseFloat(document.getElementById("nota1").value);
-            var nota2 = parseFloat(document.getElementById("nota2").value);
+<h2 style="text-align: center;">Lista ex3</h2>
 
-            var media = (nota1 + nota2) / 2;
-            var situacao, cor;
+<p style="text-align: center;">Item: <input type="text" id="item"></p>
+<p style="text-align: center;">Cores:
+  <input type="radio" name="cores" value="red"> Vermelho
+  <input type="radio" name="cores" value="blue"> Azul
+  <input type="radio" name="cores" value="green"> Verde
+</p>
 
-            if (media >= 6) {
-                situacao = "Aprovado";
-                cor = "azul";
-            } else {
-                situacao = "Reprovado";
-                cor = "vermelho";
-            }
+<button id="add" style="text-align: center;">Adicionar Item</button>
 
-            document.getElementById("media").textContent = media.toFixed(2);
-            document.getElementById("situacao").textContent = situacao;
-            document.getElementById("situacao").style.color = cor;
-        }
-    </script>
+<ul id="lista" style="text-align: center;"></ul>
+
+<script>
+document.getElementById("add").addEventListener("click", add);
+
+function add() {
+  var item = document.getElementById("item").value;
+  var cor = document.querySelector('input[name="cores"]:checked').value;
+
+  var l = document.createElement("LI");
+  var tl = document.createTextNode(item);
+  l.style.color = cor;
+  l.appendChild(tl);
+  document.getElementById("lista").appendChild(l);
+}
+</script>
+
 </body>
 </html>

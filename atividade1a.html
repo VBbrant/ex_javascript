@@ -5,26 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        #media, #situacao {
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 <body>
+    <h1>Média ex1</h1>
     <p>Média: <span id="media"></span></p>
     <p>Situação: <span id="situacao"></span></p>
     <script>
         var nota_1 = prompt("Digite a nota da primeira prova: ");
         var nota_2 = prompt("Digite a nota da segunda prova: ");
-        nota_1=parseFloat(nota_1);
-        nota_2=parseFloat(nota_2);
-        media=(nota_1+nota_2)/2;
-        if (media>=6) {
-            situacao="Aprovado";
-            cor="blue";
+        nota_1 = parseFloat(nota_1);
+        nota_2 = parseFloat(nota_2);
+        media = (nota_1 + nota_2) / 2;
+
+        if (media >= 6) {
+            situacao = "Aprovado";
+            cor = "blue";
+        } else {
+            situacao = "Reprovado";
+            cor = "red";
         }
-        else {
-            situacao="Reprovado";
-            cor="red";
-        }
-        console.log(situacao,cor);
-        var media_resultado= document.getElementById("media");
+
+        console.log(situacao, cor);
+
+        var media_resultado = document.getElementById("media");
         media_resultado.innerHTML = media;
 
         var situacao_resultado = document.getElementById("situacao");
